@@ -10,6 +10,15 @@ function search(event) {
 
     let headingElement = document.querySelector("#current-temperature-value1");
     headingElement.innerHTML = temperature;
+
+    let moderaterain = document.querySelector("#moderate-rain");
+    moderaterain.innerHTML = response.data.condition.description;
+
+    let humidity = document.querySelector("#humidity");
+    humidity.innerHTML = `${response.data.temperature.humidity} %`;
+
+    let wind = document.querySelector("#wind");
+    wind.innerHTML = `${response.data.wind.speed} km/h`;
   }
 
   let apiKey = "b2a5adcct04b33178913oc335f405433";
