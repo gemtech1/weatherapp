@@ -21,7 +21,7 @@ function search(event) {
     wind.innerHTML = `${response.data.wind.speed} km/h`;
 
     let iconElement = document.querySelector("#current-temperature-icon");
-    iconElement.innerHTML = `<img src="${response.data.condition.icon_url}"  />`;
+    iconElement.innerHTML = `<img src="${response.data.condition.icon_url}"/>`;
   }
 
   let apiKey = "b2a5adcct04b33178913oc335f405433";
