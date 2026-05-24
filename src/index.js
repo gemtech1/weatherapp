@@ -23,11 +23,6 @@ function search(event) {
     let iconElement = document.querySelector("#current-temperature-icon");
     iconElement.innerHTML = `<img src="${response.data.condition.icon_url}"/>`;
   }
-
-  let apiKey = "b2a5adcct04b33178913oc335f405433";
-  let city = searchInputElement.value;
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayTemperature);
 }
 
 function formatDate(date) {
@@ -65,30 +60,23 @@ let currentDate = new Date();
 
 currentDateELement.innerHTML = formatDate(currentDate);
 
-function getForecast(city) {
-  let apiKey = "7add6853tef8fd344b8daoac425b7804";
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
-  axios(apiUrl).then(displayForecast);
-  console.log(response.data);
-}
 
-function displayForecast(response) {
+
+function displayForecast() {
   let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
   let forecastHtml = " ";
 
-  response.data.daily.forEach(function (day) {
+  days.forEach(function (day) {
     forecastHtml =
       forecastHtml +
       `<div class="weather-forecast-day">
-        <div class="weather-forecast-date">${response.data.day.time}</div>
-          <img src="${day.condition.icon_url}" class="weather-forecast-icon" />
+        <div class="weather-forecast-date">${day}</div>
+        <div class="weather-forecast-icon">🌤️</div>
         <div class="weather-forecast-temperatures">
           <div class="weather-forecast-temperature">
-            <strong>${Math.round(day.temperature.maximum)}º</strong>
+            <strong> 15Cº </strong>
           </div>
-          <div class="weather-forecast-temperature">${Math.round(
-            day.temperature.minimum,
-          )}º</div>
+          <div class="weather-forecast-temperature">4Cº</div>
         </div>
       </div>
     `;
@@ -99,3 +87,4 @@ function displayForecast(response) {
 }
 
 displayForecast();
+
