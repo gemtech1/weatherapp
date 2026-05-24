@@ -67,7 +67,7 @@ currentDateELement.innerHTML = formatDate(currentDate);
 
 function displayForecast() {
   let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
-  let forecastHtml = " 1";
+  let forecastHtml = " ";
 
   days.forEach(function (day) {
     forecastHtml =
